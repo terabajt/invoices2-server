@@ -1,35 +1,31 @@
 # Invoices2 Backend
+
 ## Invoices2 is a backend application built using Node.js and Express.js to manage and process invoices. This project provides RESTful APIs for handling invoice-related operations such as creating, updating, deleting, and retrieving invoice data, as well as managing users and authentication.
 
 ### Technologies
+
 Node.js: Backend JavaScript runtime.
 Express.js: Minimalist web framework for building RESTful APIs.
 MongoDB/MySQL/PostgreSQL: (Choose one or adapt) for the database layer.
 JWT: Token-based authentication for securing the APIs.
 Docker: Containerized development for consistency across environments (optional).
+
 ### Installation
+
 Clone the repository:
 
-`
-git clone https://github.com/terabajt/invoices2-server.git
-`
+`git clone https://github.com/terabajt/invoices2-server.git`
 Navigate to the project directory:
 
-`
-cd invoices2-backend
-`
+`cd invoices2-backend`
 Install dependencies:
-`
-npm install
-`
+`npm install`
 
 Configure environment variables: Create a .env file in the root directory and add the required variables (e.g., database connection details, JWT secret).
 
 Run the development server:
 
-`
-npm run dev
-`
+`npm run dev`
 
 API Endpoints
 Authentication:
@@ -44,6 +40,7 @@ DELETE /api/invoices/:id – Delete an invoice by ID.
 Development
 ESLint and Prettier configurations for code linting and formatting.
 Nodemon for live-reloading during development.
+
 ## Project Repository
 
 ![Repository schema](https://github.com/terabajt/invoices2/blob/main/ProjectRepository.png)
@@ -169,8 +166,11 @@ function authJwt() {
 
 module.exports = authJwt;
 ```
-Contributions
+
+### Contributions
+
 Feel free to fork this repository and submit pull requests. Any suggestions or bug reports are welcome!
 
-License
+### License
+
 This project is licensed under the MIT License.
