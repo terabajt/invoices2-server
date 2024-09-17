@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "Server REST API for INVOICES2 app",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "lint": "eslint helpers/ models/ routes/ app.js"
   },
   "author": "Michał Pasynek",
   "license": "ISC",
@@ -22,5 +24,11 @@
     "nodemailer": "^6.9.8",
     "nodemon": "^3.0.1",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0"
   }
 }
