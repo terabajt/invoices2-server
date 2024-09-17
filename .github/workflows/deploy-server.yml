@@ -36,7 +36,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            cd /var/www/server
+            cd /var/www/server/invoices2-server
             git pull origin main
             npm install
             pm2 restart all
