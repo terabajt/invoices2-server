@@ -1,33 +1,33 @@
-const express = require('express');
-const app = express();
-const morgan = require('morgan');
-const cors = require('cors');
-const { config } = require('dotenv');
-const mongoose = require('mongoose');
+import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import morgan from "morgan";
 
-require('dotenv/config');
+dotenv.config();
 
 const API = process.env.API_URL;
 const PORT = process.env.PORT;
 
+const app = express();
+
 //INIT CORS
 app.use(cors());
-app.options('*', cors());
+app.options("*", cors());
 
 //JWT
-const authJwt = require('./helpers/jwt');
+import authJwt from "./helpers/jwt.js";
 
 //MIDDLEWARE CONFIG
 app.use(express.json());
-app.use(morgan('tiny'));
+app.use(morgan("tiny"));
 app.use(authJwt());
 
 //IMPORT ROUTES
-const usersRoutes = require('./routes/users');
-const invoicesRoutes = require('./routes/invoices');
-const customersRoutes = require('./routes/customers');
-const activationRoutes = require('./routes/activation');
-
+import activationRoutes from "./routes/activation.js";
+import customersRoutes from "./routes/customers.js";
+import invoicesRoutes from "./routes/invoices.js";
+import usersRoutes from "./routes/users.js";
 //ROUTES
 app.use(`${API}/users`, usersRoutes);
 app.use(`${API}/invoices`, invoicesRoutes);
@@ -36,15 +36,15 @@ app.use(`${API}/activation`, activationRoutes);
 
 //MONGOOSE CONNECT
 mongoose
-	.connect(process.env.CONNECTION_STRING)
-	.then(() => {
-		console.log('Connected to database OK');
-	})
-	.catch(err => {
-		console.log(err);
-	});
+  .connect(process.env.CONNECTION_STRING)
+  .then(() => {
+    console.log("Connected to database OK");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 //MAIN
 app.listen(PORT, () => {
-	console.log(`Server is running on localhost:${PORT}`);
+  console.log(`Server is running on localhost:${PORT}`);
 });
